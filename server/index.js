@@ -1,6 +1,8 @@
 // Entry point for server javascript
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path'); 
+const bodyParser = require('body-parser');
 const app = express(); 
 
 
@@ -18,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // api routes
-app.use('/api', require('./apiRoutes'));
+app.use('/api', require('../apiRoutes'));
 
 
 // send HTML
