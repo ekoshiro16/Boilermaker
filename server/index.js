@@ -7,20 +7,25 @@ const app = express();
 // Logger middleware
 app.use(morgan('dev')); 
 
+
 // Static middleware
 app.use(express.static(path.join(__dirname, '../public')));
+
 
 // Parsing middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 // api routes
 app.use('/api', require('./apiRoutes'));
+
 
 // send HTML
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/index.html'));
   });
+
 
 // 500 errors
 app.use(function (err, req, res, next) {
@@ -28,5 +33,15 @@ app.use(function (err, req, res, next) {
     console.error(err.stack);
     res.status(err.status || 500).send(err.message || 'Internal server error.');
   });
+
+
+// Starting the server
+const port = process.env.PORT || 3000; // this can be very useful if you deploy to Heroku!
+app.listen(port, function () {
+  console.log("Knock, knock");
+  console.log("Who's there?");
+  console.log(`Your server, listening on port ${port}`);
+});
+
 
 module.exports = app;
