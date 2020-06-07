@@ -7,4 +7,7 @@ const app = express();
 
 
 // Logger middleware
-app.use(morgan('dev'));
+app.use(morgan('dev')); 
+
+// Static middleware
+app.use(express.static(path.join(__dirname, '../public')));
