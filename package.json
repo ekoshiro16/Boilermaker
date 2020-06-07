@@ -2,13 +2,16 @@
   "name": "boilermaker",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
     "build-watch": "webpack -w",
     "start-dev": "npm run build-watch & npm run start-server",
-    "start-server": "nodemon main.js -e html,js,css --ignore public"
+    "start-server": "nodemon main.js -e html,js,css --ignore public",
+    "webpack": "webpack -w",
+    "dev": "npm run webpack -- --mode development --watch",
+    "build": "npm run webpack -- --mode production"
   },
   "author": "",
   "license": "ISC",
