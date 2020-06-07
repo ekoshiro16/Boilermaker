@@ -21,3 +21,12 @@ app.use('/api', require('./apiRoutes'));
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/index.html'));
   });
+
+// 500 errors
+app.use(function (err, req, res, next) {
+    console.error(err);
+    console.error(err.stack);
+    res.status(err.status || 500).send(err.message || 'Internal server error.');
+  });
+
+module.exports = app;
