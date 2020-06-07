@@ -11,3 +11,7 @@ app.use(morgan('dev'));
 
 // Static middleware
 app.use(express.static(path.join(__dirname, '../public')));
+
+// Parsing middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
