@@ -1,0 +1,15 @@
+const router = require('express').Router();
+
+// matches GET requests to /api/villageres/
+router.get('/', function (req, res, next) { /* etc */});
+
+// matches POST requests to /api/villagers/
+router.post('/', function (req, res, next) { /* etc */});
+
+// matches PUT requests to /api/villagers/:villagerId
+router.put('/:villagerId', function (req, res, next) { /* etc */});
+
+// matches DELETE requests to /api/villagers/:villagerId
+router.delete('/:villagerId', function (req, res, next) { /* etc */});
+
+module.exports = router;
