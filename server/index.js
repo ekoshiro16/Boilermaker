@@ -1,15 +1,15 @@
 // Entry point for server javascript
 const express = require('express');
 const morgan = require('morgan');
-
 const app = express(); 
-
-// Logger middleware
-app.use(morgan('dev')); 
 
 
 // Static middleware
 app.use(express.static(path.join(__dirname, '../public')));
+
+
+// Logger middleware
+app.use(morgan('dev')); 
 
 
 // Parsing middleware
